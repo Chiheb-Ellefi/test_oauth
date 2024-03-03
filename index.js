@@ -1,5 +1,5 @@
 const express = require("express");
-
+require("dotenv").config();
 const cors = require("cors");
 const axios = require("axios");
 const app = express();
@@ -57,4 +57,5 @@ app.get("/", async (req, res) => {
 
   signUp(code, res);
 });
-app.listen(3000, console.log("server listening on port 3000"));
+const port = process.env.PORT || 3000;
+app.listen(port, console.log("server listening on port ", port));
