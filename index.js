@@ -44,7 +44,7 @@ async function signUp(code, res) {
 
 app.get("/", async (req, res) => {
   console.log("req.query : ", req.query);
-  res.json("hi");
+
   // use the code to get the access token
 
   const { code } = req.query;
