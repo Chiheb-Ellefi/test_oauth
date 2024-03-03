@@ -1,7 +1,7 @@
 const express = require("express");
 
 const cors = require("cors");
-const fetch = require("node-fetch");
+const axios = require("axios");
 const app = express();
 app.use(cors());
 
@@ -12,7 +12,8 @@ const YOUR_CLIENT_SECRET = "74k8Q~ozyjzU.OQZi17PGxGKNZ8.lUq6IcUCibQu";
 async function signUp(code, res) {
   const url = `https://login.microsoftonline.com/common/oauth2/v2.0/token?client_id=2571c776-fa74-49fa-a092-0ff8474761ba&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&code=${code}&redirect_uri=https%3A%2F%2Ftender-wings-mate.loca.lt&grant_type=authorization_code&client_secret=74k8Q~ozyjzU.OQZi17PGxGKNZ8.lUq6IcUCibQu`;
 
-  const response = await fetch(url, {
+  const response = await axios({
+    url,
     method: "POST",
     headers: {
       "Content-Type": "application/json",
